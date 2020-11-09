@@ -1,0 +1,78 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+     >
+    <div class="sidebar-logo">
+      <span>
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Aplikacja</h1>
+      </span>
+      
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-submenu nzOpen nzTitle="Panel Admina" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/admin/words">Słowa</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/admin/addWord">Dodaj słowo </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/admin/category">Kategorie </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/admin/addCategory">Dodaj kategorie </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/admin/levels">Poziomy </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/admin/addLevels">Dodaj poziomy </a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Nauka" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/learn/word">Nauka słów </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/learn/test">  Test </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/admin/dupa">  Gramatyka? </a>
+          </li>
+          <li nz-submenu nzOpen nzTitle="Krzyzówki">
+            <ul>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="/learn/crossword-human">Człowiek</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="/admin/addWord">xyz </a>
+              </li>
+              
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      
+        <p *ngIf="user">Logged in as: {{ user?.email }} - {{ user?.displayName }}</p>
+
+<button class="btn btn-primary mr-2" *ngIf="!user" (click)="register()">Register</button>
+<button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
+<button class="btn btn-primary" *ngIf="!user" (click)="login()">Login</button>
+      
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

@@ -1,0 +1,50 @@
+<div class="container">
+    
+    <nz-input-group  >
+        <nz-select [(ngModel)]="categoryName" placeholder ="Wybierz kategorie" >
+          <nz-option *ngFor ="let item of categories" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
+        </nz-select>
+    </nz-input-group>
+    <nz-input-group nzCompact >
+        <nz-select [(ngModel)]="levelName">
+          <nz-option *ngFor ="let item of level" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
+        </nz-select>
+    </nz-input-group>
+    <div class="form-group">
+        <button class="btn btn-primary" (click)="chooseCategory()" >Generuj test</button>
+    </div>
+    <div class="form-group">
+        
+    </div>
+    
+</div>
+
+<div *ngIf="!testCheck">
+    <li *ngFor="let text of items" >
+        <ul>
+            {{ text.word.ang }}
+        </ul>
+    </li>
+    <input [(ngModel)]="answer1"/>
+    <input [(ngModel)]="answer2"/>
+    <input [(ngModel)]="answer3"/>
+    <input [(ngModel)]="answer4"/>
+    <input [(ngModel)]="answer5"/>
+    <input [(ngModel)]="answer6"/>
+    <input [(ngModel)]="answer7"/>
+    <input [(ngModel)]="answer8"/>
+    <input [(ngModel)]="answer9"/>
+    <input [(ngModel)]="answer10"/>
+</div>
+    <div *ngIf="testCheck"> 
+        <p *ngIf="points>7">
+Gratulacje
+        </p>
+        <p *ngIf=" 7> points" >
+Spróbuj ponownie
+        </p>
+    </div>
+    <button (click)="checkTest()">adas</button>
+    
+
+ 

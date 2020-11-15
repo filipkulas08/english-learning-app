@@ -23,6 +23,9 @@ export class CategoryComponent implements OnInit {
       })
       console.log(this.category);
     })
+
+
+
   }
 
   EditRecord(Record){

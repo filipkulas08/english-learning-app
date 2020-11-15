@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { CrudService } from './admin-panel/crud.service';
 import { AuthService } from './auth/auth.service';
 
 @Component({
@@ -10,12 +12,29 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent {
   isCollapsed = false;
   user: firebase.User;
-  constructor(private auth: AuthService, private router: Router){
+  userRole:any;
+  activeUser:any =[
+  ];
+  isVisibleLogin = false;
+  isVisibleRegister = false;
+  constructor(private service: CrudService, private auth: AuthService, private router: Router){
   }
+  
   ngOnInit() {
     this.auth.getUserState().subscribe( user => {
       this.user = user;
+      this.service.activeUser(this.user.uid).subscribe(data =>{
+        this.activeUser = data.map(e =>{
+          return{
+            id: e.payload.doc.data()['id'],
+            role: e.payload.doc.data()['role'],
+          };
+        })
+        console.log(this.activeUser)
+      })
     })
+    
+    
   }
 
 
@@ -25,9 +44,24 @@ export class AppComponent {
 
   logout(){
     this.auth.logout();
+    this.router.navigate(['/welcome']);
   }
 
   register(){
     this.router.navigate(['/register']);
   }
+  showModalLogin(): void {
+    this.isVisibleLogin = true;
+  }
+  handleCancelLogin(): void {
+    this.isVisibleLogin = false;
+  }
+  showModalRegister(): void {
+    this.isVisibleRegister = true;
+  }
+  handleCancelRegister(): void {
+    this.isVisibleRegister = false;
+  }
+    
+
 }

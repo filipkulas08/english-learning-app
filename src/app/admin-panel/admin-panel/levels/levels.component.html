@@ -1,7 +1,7 @@
 <nz-table #basicTable [nzData]="level">
     <thead>
       <tr>
-        <th>Level name</th>
+        <th>Nazwa poziomu</th>
       </tr>
     </thead>
     <tbody>
@@ -23,8 +23,8 @@
                             <input nz-input placeholder="Wprowadź nazwe poziomu" [(ngModel)]="item.editName" />
                         </div>
                     </div>
-                <a  class="btn btn-danger btn-xs" (click)="item.isedit = false">Cancel</a>
-                <a  class="btn btn-primary btn-xs" (click)="Updaterecord(item)">Update Employee</a>
+                <a  class="btn btn-danger btn-xs" (click)="item.isedit = false">Anuluj</a>
+                <a  class="btn btn-primary btn-xs" (click)="Updaterecord(item)">Zaaktualizuj</a>
                 </div>   
             </div>
         </div>

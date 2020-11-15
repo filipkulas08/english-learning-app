@@ -37,6 +37,7 @@ export class CrudService {
   getLevel(){
     return this.db.collection('level').snapshotChanges();
   }
+
   
 //metody aktualizujące słowa, kategorię oraz poziomy w bazie
   updateWord(recordid,record){
@@ -48,6 +49,10 @@ export class CrudService {
   }
   updateLevel(recordid,record){
     this.db.doc('level/' + recordid).update(record);
+
+  }
+  updateUser(recordid,record){
+    this.db.doc('Users/' + recordid).update(record);
 
   }
 
@@ -64,6 +69,7 @@ export class CrudService {
   deleteLevel(record_id){
     this.db.doc('level/' + record_id).delete();
   }
+  
 
 //metoda pobierająca listę słów w zależności od wybranej kategorii oraz poziomu
   whereLimit(categoryName,limit,levelName){
@@ -74,5 +80,8 @@ export class CrudService {
   return this.db.collection('words', ref => ref.where('word.category.name', '==', categoryName).where('word.category.level.name', '==', levelName)).snapshotChanges();
 }
 
+activeUser(userId){
+  return this.db.collection('Users', ref => ref.where('id', '==', userId)).snapshotChanges();
+}
   
 }

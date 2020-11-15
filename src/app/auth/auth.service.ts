@@ -27,7 +27,8 @@ export class AuthService {
     })
     .then(userCredential => {
       if(userCredential){
-        this.router.navigate(['/welcome']);
+        window.location.reload();
+        // this.router.navigate(['/welcome']);
       }
     })
   }
@@ -38,11 +39,12 @@ export class AuthService {
       console.log(userCredential);
       
       userCredential.user.updateProfile( {
-        displayName: user.firstName + ' ' + user.lastName
+        displayName: user.firstName + ' ' + user.lastName,
+        
       });
 
       this.insertUserData(userCredential).then(()=>{
-        this.router.navigate(['/welcome']);
+        window.location.reload();
       }
       );
     })
@@ -53,10 +55,13 @@ export class AuthService {
 
   insertUserData( userCredential: firebase.auth.UserCredential){
     return this.db.doc(`Users/${userCredential.user.uid}`).set({
+
       email: this.newUser.email,
       firstname: this.newUser.firstName,
       lastname: this.newUser.lastName,
-      role: 'network user'
+      role: 'user',
+      id: userCredential.user.uid,
+      
     })
   }
 

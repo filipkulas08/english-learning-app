@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/admin-panel/crud.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-test',
@@ -7,13 +8,13 @@ import { CrudService } from 'src/app/admin-panel/crud.service';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+  user: firebase.User;
   level: any; 
   categories:any;
   words:any;
   items:any ;
   categoryName:string;
   levelName:string = '';
-  limit = 10;
   answer1:string;
   answer2:string;
   answer3:string;
@@ -26,9 +27,14 @@ export class TestComponent implements OnInit {
   answer10:string;
   points:any = 0;
   testCheck:boolean = false;
-  constructor(private service: CrudService) { }
+  random: any = [];
+  constructor(private auth: AuthService, private service: CrudService) { }
 
   ngOnInit(): void {
+    this.auth.getUserState().subscribe( user => {
+      this.user = user;
+    })
+
     this.service.getLevel().subscribe(data =>{
       this.level = data.map(e =>{
         return{
@@ -53,10 +59,11 @@ export class TestComponent implements OnInit {
       console.log(this.categories);
     })
     
+    
   }
 
   chooseCategory(){
-    this.service.whereLimit(this.categoryName,this.limit,this.levelName).subscribe(data =>{
+    this.service.where(this.categoryName,this.levelName).subscribe(data =>{
       this.items = data.map(e =>{
         return{
           id: e.payload.doc.id,
@@ -64,42 +71,55 @@ export class TestComponent implements OnInit {
           
         };
       })
-      console.log(this.items);
+      for(var i=0;i<10;i++){
+        var randomNumber = Math.floor(Math.random()* this.items.length);
+        console.log(randomNumber);
+        this.random[i]=this.items[randomNumber];
+          this.items.splice(randomNumber,1);
+          // console.log(this.items);
+          // console.log(this.random);
+      }
     })
     this.testCheck = false;
     this.points = 0;
     
+    
   }
   checkTest(){
-    if(this.answer1 === this.items[0].word.pl){
+    if(this.answer1 === this.random[0].word.pl){
       this.points=this.points+1;
     }
-    if(this.answer2 === this.items[1].word.pl){
+    if(this.answer2 === this.random[1].word.pl){
       this.points=this.points+1;
     }
-    if(this.answer3 === this.items[2].word.pl){
+    if(this.answer3 === this.random[2].word.pl){
       this.points=this.points+1;
     }
-    if(this.answer4 === this.items[3].word.pl){
+    if(this.answer4 === this.random[3].word.pl){
       this.points=this.points+1;
     }
-    if(this.answer5 === this.items[4].word.pl){
+    if(this.answer5 === this.random[4].word.pl){
       this.points=this.points+1;
     }
-    if(this.answer6 === this.items[5].word.pl){
+    if(this.answer6 === this.random[5].word.pl){
       this.points=this.points+1;
     }
-    if(this.answer7 === this.items[6].word.pl){
+    if(this.answer7 === this.random[6].word.pl){
       this.points=this.points+1;
     }
-    if(this.answer8 === this.items[7].word.pl){
+    if(this.answer8 === this.random[7].word.pl){
       this.points=this.points+1;
     }
-    if(this.answer9 === this.items[8].word.pl){
+    if(this.answer9 === this.random[8].word.pl){
       this.points=this.points+1;
     }
-    if(this.answer10 === this.items[9].word.pl){
+    if(this.answer10 === this.random[9].word.pl){
       this.points=this.points+1;
+    }
+    if(this.points >=8){
+      this.test1Success();
+    }else{
+      this.test1Miss();
     }
     console.log(this.points);
 
@@ -120,4 +140,16 @@ export class TestComponent implements OnInit {
     this.levelName = "";
     
   }
+  test1Success(){
+    let Record = {};
+    Record['test1check'] = true;
+    this.service.updateUser(this.user.uid,Record);
+    }
+
+  test1Miss(){
+    let Record = {};
+    Record['test1check'] = false;
+    this.service.updateUser(this.user.uid,Record);
+    }
+  
 }

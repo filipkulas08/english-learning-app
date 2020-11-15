@@ -11,7 +11,7 @@
       
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-submenu nzOpen nzTitle="Panel Admina" nzIcon="dashboard">
+      <li *ngIf="user && activeUser[0].role ==='admin'" nz-submenu nzOpen nzTitle="Panel Admina" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/admin/words">Słowa</a>
@@ -61,17 +61,49 @@
   </nz-sider>
   <nz-layout>
     <nz-header>
-      
-        <p *ngIf="user">Logged in as: {{ user?.email }} - {{ user?.displayName }}</p>
+<button nz-button nzType="primary"  *ngIf="!user" (click)="showModalRegister()">Register</button>
+<button nz-button nzType="primary" *ngIf="user" (click)="logout()">Logout</button>
+<button nz-button nzType="primary" *ngIf="!user" (click)="showModalLogin()">Login</button>
+<nz-modal 
+  [(nzVisible)]="isVisibleLogin"
+  [nzTitle]="modalTitleLogin"
+  [nzContent]="modalContentLogin"
+  [nzFooter]="modalFooterLogin"
+  (nzOnCancel)="handleCancelLogin()"
+>
+  <ng-template #modalTitleLogin>
+    Logowanie
+  </ng-template>
+  <ng-template #modalContentLogin>
+    <app-login>
+    </app-login>
+  </ng-template>
+  <ng-template #modalFooterLogin>
+  </ng-template>
+</nz-modal>
 
-<button class="btn btn-primary mr-2" *ngIf="!user" (click)="register()">Register</button>
-<button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
-<button class="btn btn-primary" *ngIf="!user" (click)="login()">Login</button>
-      
+<nz-modal 
+  [(nzVisible)]="isVisibleRegister"
+  [nzTitle]="modalTitleRegister"
+  [nzContent]="modalContentRegister"
+  [nzFooter]="modalFooterRegister"
+  (nzOnCancel)="handleCancelRegister()"
+>
+  <ng-template #modalTitleRegister>
+    Rejestracja
+  </ng-template>
+  <ng-template #modalContentRegister>
+    <app-registration>
+    </app-registration>
+  </ng-template>
+  <ng-template #modalFooterRegister>
+  </ng-template>
+</nz-modal>
     </nz-header>
     <nz-content>
       <div class="inner-content">
         <router-outlet></router-outlet>
+        
       </div>
     </nz-content>
   </nz-layout>

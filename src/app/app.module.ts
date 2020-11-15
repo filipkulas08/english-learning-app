@@ -19,6 +19,8 @@ import { registerLocaleData } from '@angular/common';
 import pl from '@angular/common/locales/pl';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { LoginComponent } from './auth/login/login.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 registerLocaleData(pl);
 
@@ -40,7 +42,9 @@ registerLocaleData(pl);
     NzMenuModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NzButtonModule,
+    NzModalModule
   ],
   providers: [{ provide: NZ_I18N, useValue: pl_PL }],
   bootstrap: [AppComponent]

@@ -1,49 +1,136 @@
 <div class="container">
-    
-    <nz-input-group  >
-        <nz-select [(ngModel)]="categoryName" placeholder ="Wybierz kategorie" >
-          <nz-option *ngFor ="let item of categories" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
-        </nz-select>
-    </nz-input-group>
-    <nz-input-group nzCompact >
-        <nz-select [(ngModel)]="levelName">
-          <nz-option *ngFor ="let item of level" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
-        </nz-select>
-    </nz-input-group>
-    <div class="form-group">
-        <button class="btn btn-primary" (click)="chooseCategory()"  >Generuj test</button>
+    <div nz-row id="row1" >
+        <div nz-col *ngIf="!isChoose" nzSpan="8" >
+          <span>
+            <p>
+              Wybierz kategorię oraz poziom słów aby rozpocząć test.
+            </p>
+          </span>
+          <nz-input-group  >
+            <nz-select [(ngModel)]="categoryName" placeholder ="Wybierz kategorie" >
+              <nz-option *ngFor ="let item of categories" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
+            </nz-select>
+        </nz-input-group>
+        <nz-input-group nzCompact >
+            <nz-select [(ngModel)]="levelName">
+              <nz-option *ngFor ="let item of level" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
+            </nz-select>
+        </nz-input-group>
+            <div class="form-group">
+                <button nz-button nzType="primary" (click)="chooseCategoryAndLevel()"  >Generuj test</button>
+                <a> {{message}}</a>
+            </div>
+        </div>
+        <div nz-col nzSpan = "8" *ngIf="isChoose">
+            <button nz-button nzType="primary" (click)="clearChoose()"  >Zmień kategorię testu</button>
+        </div>
     </div>
-    <div class="form-group">
-        
-    </div>
-    
 </div>
-
-<div *ngIf="!testCheck">
-    <li *ngFor="let text of random" >
-        <ul>
-            {{ text.word.ang }}
-        </ul>
-    </li>
-    <input [(ngModel)]="answer1"/><br>
-    <input [(ngModel)]="answer2"/><br>
-    <input [(ngModel)]="answer3"/><br>
-    <input [(ngModel)]="answer4"/><br>
-    <input [(ngModel)]="answer5"/><br>
-    <input [(ngModel)]="answer6"/><br>
-    <input [(ngModel)]="answer7"/><br>
-    <input [(ngModel)]="answer8"/><br>
-    <input [(ngModel)]="answer9"/><br>
-    <input [(ngModel)]="answer10"/><br>
+<div class="container2" *ngIf="isChoose">
+    <div nz-row >
+        <div nz-col  nzSpan="8" nzOffset="4">
+            <p>
+                <span>
+                    Slowa angielskie
+                </span>
+            </p>
+            <div nz-row class="flex" *ngFor="let text of random">
+                <p>
+                    <span>
+                        {{ text.word.ang }}
+                    </span>
+                </p>
+            </div>
+         
+        </div>
+        <div nz-col nzSpan="8">
+            <p>
+                <span>
+                    Odpowiedzi
+                </span>
+            </p>
+            <div nz-row class="flex">
+                <p>
+                    <span [ngClass]="{'success': success[0] === 'true', 'nothing': success[0] == '', 'false': success[0] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer1"/><br>
+                    </span>
+                </p>
+            </div>
+            <div nz-row class="flex">
+                <p>
+                    <span [ngClass]="{'success': success[1] === 'true', 'nothing': success[1] == '', 'false': success[1] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer2"/><br>
+                    </span>
+                </p>
+            </div>
+            <div nz-row class="flex">
+                <p>
+                    <span [ngClass]="{'success': success[2] === 'true', 'nothing': success[2] == '', 'false': success[2] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer3"/><br>
+                    </span>
+                </p>
+            </div>
+            <div nz-row class="flex">
+                <p>
+                    <span [ngClass]="{'success': success[3] === 'true', 'nothing': success[3] == '', 'false': success[3] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer4"/><br>
+                    </span>
+                </p>
+            </div>
+            <div nz-row class="flex">
+                <p>
+                    <span [ngClass]="{'success': success[4] === 'true', 'nothing': success[4] == '', 'false': success[4] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer5"/><br>
+                    </span>
+                </p>
+            </div>
+            <div nz-row class="flex">
+                <p>
+                    <span [ngClass]="{'success': success[5] === 'true', 'nothing': success[5] == '', 'false': success[5] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer6"/><br>
+                    </span>
+                </p>
+            </div>
+            <div nz-row class="flex">
+                <p>
+                    <span [ngClass]="{'success': success[6] === 'true', 'nothing': success[6] == '', 'false': success[6] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer7"/><br>
+                    </span>
+                </p>
+            </div>
+            <div nz-row class="flex">
+                <p>
+                    <span [ngClass]="{'success': success[7] === 'true', 'nothing': success[7] == '', 'false': success[7] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer8"/><br>
+                    </span>
+                </p>
+            </div>
+            <div nz-row class="flex">
+                <p>
+                    <span [ngClass]="{'success': success[8] === 'true', 'nothing': success[8] == '', 'false': success[8] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer9"/><br>
+                    </span>
+                </p>
+            </div>
+            <div nz-row class="flex" >
+                <p>
+                    <span [ngClass]="{'success': success[9] === 'true', 'nothing': success[9] == '', 'false': success[9] == 'false'}">
+                        <input style="text-transform: lowercase;" [(ngModel)]="answer10"/><br>
+                    </span>
+                </p>
+            </div>
+       </div>
+       <div nz-col nzSpan="16" nzOffset="4">
+           <div  *ngIf="testCheck" class="summary">
+                <p *ngIf="points>7">
+                    Gratulacje {{points}}/10;
+                </p>
+                <p *ngIf=" 7> points" >
+                    Spróbuj ponownie {{points}}/10
+                </p>
+           </div>
+            <button nz-button nzType="primary" *ngIf="!testCheck" (click)="checkTest()">Sprawdź test</button>
+                
+       </div>
+      </div>
 </div>
-    <div *ngIf="testCheck"> 
-        <p *ngIf="points>7">
-Gratulacje {{points}}/10;
-        </p>
-        <p *ngIf=" 7> points" >
-Spróbuj ponownie {{points}}/10;
-        </p>
-    </div>
-    <button (click)="checkTest()">Sprawdź test</button>
-    
-

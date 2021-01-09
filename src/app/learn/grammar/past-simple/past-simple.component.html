@@ -1,0 +1,197 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Past Simple</b>
+        <p>
+          Czas Past Simple jest czasem przeszłym dokonanym. Opisuje wydarzenia, które dokonały się w określonym czasie w
+          przeszłości. Krótko mówiąc – informujemy, kiedy coś się stało. Używamy przy tym konkretnych określeń czasu,
+          np. wczoraj, dwa dni temu, trzy tygodnie temu, itp. Czas wykonania czynności może być podany wprost w zdaniu
+          lub może wynikać z kontekstu, w jakim zdanie zostało użyte. Nie jest przy tym istotny czas trwania czynności,
+          skupiamy się na tym, że dana czynność, lub kilka kolejnych czynności, została wykonana.
+          Past Simple użyjemy także, mówiąc o naszych dawnych zwyczajach i nawykach, czyli stwierdzając fakty, które nie
+          są już aktualne.
+        </p>
+      </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Operator did</b>
+          <p>
+            Jak tworzymy drugą formę czasownika? Czasownikom regularnym dodajemy -ed lub -d, natomiast form czasowników
+            nieregularnych należy nauczyć się na pamięć.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Druga forma czasownika</b>
+          <p>
+            W czasie Past Simple, przy tworzeniu zdań przeczących i pytań pojawia się dodatkowe słówko, operator,
+            czasownik posiłkowy – did (czyli druga forma czasownika do). Dobra wiadomość jest taka, że operator wygląda
+            tak samo we wszystkich osobach i bez względu na to, czy czasownik jest regularny czy nie.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            podmiot + II forma czasownika
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              She was very tired after work.
+            </li>
+            <li>
+              We were at home all day yesterday.
+            </li>
+            <li>
+              They were very happy when they heard the news.
+            </li>
+            <li>
+              They tried the soup but it was too hot to eat.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Utworzenie zdania przeczącego najczęściej wymaga użycia operatora did w połączeniu z not.
+            Wyjątkiem są czasowniki modalne oraz czasownik to be! Nie użyjemy w tych przypadkach operatora did.<br>
+            podmiot + did + not + czasownik
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              He didn't take her to the restaurant last weekend.
+            </li>
+            <li>
+              We didn't go to the cinema yesterday.
+            </li>
+            <li>
+              I wasn't in France last summer.
+            </li>
+            <li>
+              I couldn't sleep last night.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Aby w Past Simple utworzyć standardowe pytanie musimy użyć operatora did. Wstawiamy go przed podmiot zdania
+            a czasownik... wraca do pierwszej formy!<br>
+            Did + podmiot + I forma czasownika
+          </p>
+          <p>
+            Ale jest jedna uwaga – w pytaniach o podmiot nie używamy operatora i nie zmieniamy formy czasownika –
+            czasownik zostaje w II formie. Pytanie takie ma taki szyk jak analogiczne pytanie w języku polskim.
+          </p>
+          <p>
+            Jest jeszcze trzeci typ pytania. Czasownik to be (w czasie przeszłym was w 1 i 3 os. l.poj. i were dla
+            pozostałych osób) rządzi się swoimi prawami i tworzy pytanie przez zmianę szyku, czyli występuje przed
+            podmiotem. Pytanie w tym przypadku obywa się bez operatora.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Did you see that?
+            </li>
+            <li>
+              When did you buy this car?
+            </li>
+            <li>
+              How many people came to the party?
+            </li>
+            <li>
+              Why was she upset?
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Past Simple</b>
+          <ol>
+            <li>
+              (be) The trip <input nz-input [(ngModel)]="answer1" /> really exciting!
+            </li>
+            <li>
+              (visit) We <input nz-input [(ngModel)]="answer2" /> our grandmother yesterday.
+            </li>
+            <li>
+              (cost) Two months ago they <input nz-input [(ngModel)]="answer3" /> ten pounds.
+            </li>
+          </ol>
+          <button nz-button nzType="primary"   (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+     
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

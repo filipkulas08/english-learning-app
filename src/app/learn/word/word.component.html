@@ -1,33 +1,53 @@
 <div class="container">
-    
-    <nz-input-group  >
+  <div nz-row id="row1">
+    <div nz-col nzSpan="8" *ngIf="!isChoose">
+      <span>
+        <p>
+          Wybierz kategorię oraz poziom słów aby zacząć naukę.
+        </p>
+      </span>
+      <nz-input-group  >
         <nz-select [(ngModel)]="categoryName" placeholder ="Wybierz kategorie" >
           <nz-option *ngFor ="let item of categories" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
         </nz-select>
-    </nz-input-group>
-    <nz-input-group nzCompact >
+      </nz-input-group>
+      <nz-input-group nzCompact >
         <nz-select [(ngModel)]="levelName">
           <nz-option *ngFor ="let item of level" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
         </nz-select>
-    </nz-input-group>
-    <div class="form-group">
-        <button class="btn btn-primary" (click)="chooseCategory()" >Pokaż słówko</button>
+      </nz-input-group>
+      <div class="form-group">
+        <button nz-button nzType="primary" (click)="chooseCategoryAndLevel()" >Pokaż słowa</button>
+        <a> {{message}}</a>
+      </div> 
     </div>
-    <div class="form-group">
-        
+    <div nz-col nzSpan="8" *ngIf="isChoose" >
+      <button nz-button nzType="primary" (click)="clearChoose()" >Zmień kategorie słów</button>
     </div>
-    
+  </div>
 </div>
-    
+<div class="container2" *ngIf="isChoose">
+    <div nz-row   id="row2" >
+      <div nz-col nzSpan="8" nzOffset="4">
+        <p>
+          <span>Słowo angielskie</span><br>
+          <span class="name">{{items[Index].word.ang}}</span>
+        </p>
+      </div>
+      <div nz-col nzSpan="8">
+        <p>
+          <span>Słowo polskie</span><br>
+          <span class="name">{{items[Index].word.pl}}</span>
+        </p>
+     </div>
+    </div>
+    <div nz-row  id="row3">
+      <div nz-col nzSpan="6" nzOffset="9">
+          <button nz-button nzType="primary" *ngIf="Index>0" (click)="changeIndex(-1);" > Poprzednie</button>
+          <button nz-button nzType="primary" *ngIf="items.length - 1>Index"  (click)="changeIndex(1);" >Kolejne</button>
+          <button nz-button nzType="primary" (click)="speech()">Wymowa</button>
 
-<div *ngIf="items" >
-    <p>Date: <span class="name">{{items[Index].word.ang}}</span> </p>
-    <button *ngIf="Index>0" (click)="changeIndex(-1);">Poprzednie</button>
-<button *ngIf="items.length - 1>Index"  (click)="changeIndex(1);">Kolejne</button>   
+      </div>
+    </div>
 </div>
 
-<div>
-  <button (click)="speech()">
-    Wymowa
-  </button>
-</div>

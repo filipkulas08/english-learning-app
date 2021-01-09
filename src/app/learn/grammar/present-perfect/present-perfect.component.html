@@ -1,0 +1,187 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Present Perfect</b>
+          <p>
+            Present Perfect to jeden z najważniejszych czasów w języku angielskim i jego zrozumienie jest ważnym
+            krokiem w nauce języka. Ponieważ w języku polskim nie mamy odpowiednika Present Perfect, czas ten może
+            sprawić pewne trudności, zwłaszcza że w tłumaczeniach na język polski w niektórych sytuacjach używamy
+            czasu przeszłego, a w innych teraźniejszego. Na szczeście wiemy, jak prosto i klarownie wytłumaczyć budowę
+            i użycie Present Perfect. Zaczynamy.
+
+            Najważniejszym aspektem Present Perfect jest to, że nie jest istotne, kiedy czynność została wykonana (lub
+            nie) ale ważne są jej skutki w teraźniejszości. To podstawowa różnica miedzy Past Simple, w którym czas
+            wykonania czynności jest istotny. Drugie podstawowe użycie to opis czynności, która zaczęła się w danym
+            momencie w przeszłości i trwa do dziś.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Zastosowanie</b>
+          <ul>
+            <li>
+              Present Perfect używamy do opisania przeszłej czynności (nie podając, kiedy była ona wykonana), która ma
+              wpływ na teraźniejszość - i najważniejszy właśnie jest ten związek z teraźniejszością. A zatem ważna jest
+              przyczyna i jej skutek - natomiast nie jest istotne, kiedy dana czynność została (lub nie) wykonana.
+            </li>
+            <li>
+              Opisujemy stan, który trwa do chwili obecnej (ale który może się zmienić w przyszłości).
+            </li>
+            <li>
+              Wyrażamy czynność, która dopiero się zakończyła.
+            </li>
+            <li>
+              Present Perfect występuje też w zdaniach z It's the first/last/second, etc. time...
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Zdanie w Present Perfect wymaga bardziej złożonego orzeczenia (czasownika) niż np. w czasie Present Simple.
+            We wszystkich czasach, które mają w nazwie perfect, w orzeczeniu musi znaleźć się tzw. operator. W Present
+            Perfect jest nim have lub has.
+          </p>
+          <p>
+            podmiot + have/has + III forma czasownika
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              I have found his telephone number.
+            </li>
+            <li>
+              We are waiting for my uncle.
+            </li>
+            <li>
+              Someone has taken my bag.
+            </li>
+            <li>
+              I have always wanted to be an actress.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Przeczenie tworzymy łącząc operator ze słówkiem <b>not</b>.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              I haven't taken your book.
+            </li>
+            <li>
+              We haven't read this book.
+            </li>
+            <li>
+              He hasn't met her before.
+            </li>
+            <li>
+              They haven't passed the exam.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Aby utworzyć pytanie wystarczy zamienić ze sobą miejscami podmiot zdania i operator.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Have you ever been to France? 	
+            </li>
+            <li>
+              What has she done with her hair?
+            </li>
+            <li>
+              Have they arrived yet?
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Present Perfect</b>
+          <ol>
+            <li>
+              (be) George <input nz-input [(ngModel)]="answer1" /> to New York twice.
+            </li>
+            <li>
+              (see) <input nz-input [(ngModel)]="answer2" /> you ever <input nz-input [(ngModel)]="answer3" /> something like that?
+            </li>
+            <li>
+              (slay) This murderer <input nz-input [(ngModel)]="answer4" /> just <input nz-input [(ngModel)]="answer5" /> his whole family!
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

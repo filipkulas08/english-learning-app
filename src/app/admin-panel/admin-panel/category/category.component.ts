@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../crud.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-category',
@@ -9,7 +10,7 @@ import { CrudService } from '../../crud.service';
 export class CategoryComponent implements OnInit {
 
     category: any;
-  constructor(private service: CrudService) { }
+  constructor(private service: CrudService, private messager: NzMessageService) { }
 
   ngOnInit(): void {
     this.service.getCategory().subscribe(data =>{
@@ -45,5 +46,14 @@ export class CategoryComponent implements OnInit {
     this.service.deleteCategory(record_id);
 
   }
+
+  deleteMessage(): void {
+    this.messager.info('Słowo zostało usunięte poprawnie');
+  }
+  
+  editMessage(): void {
+    this.messager.info('Słowo zostało edytowane poprawnie');
+  }
+  
 
 }

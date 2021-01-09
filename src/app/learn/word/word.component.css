@@ -1,0 +1,15 @@
+button{
+    width: 33%;
+}
+#row2{
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+#row2 .ant-col{
+    border: 1px solid;
+    text-align: center;
+    font-size: 2rem;
+}
+span.name{
+    font-size: 4rem;
+}

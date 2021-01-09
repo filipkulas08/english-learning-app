@@ -1,0 +1,170 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Present Perfect Continous</b>
+          <p>
+            Present Perfect Continuous używamy w następujących sytuacjach:
+            opisywana czynność rozpoczęła się w przeszłości, trwała nieprzerwanie i trwa do chwili obecnej,
+            czynność rozpoczęła się w przeszłości i właśnie się skończyła ale jej skutki są wciąż odczuwalne.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Zdania twierdzące</b>
+          <p>
+            Po podmiocie wstawiamy operator (has dla trzeciej osoby liczby pojedynczej, have dla pozostałych osób).
+            Następnie dodajemy być - zawsze w trzeciej formie been, a na koniec czasownik właściwy z końcówką -ing.
+            Zdanie gotowe!
+            Nie jest to takie trudne - po podmiocie zawsze będzie have been lub has been - potem tylko czasownik+ing i
+            zrobione.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            podmiot + have/has + been + czasownik z końcówką -ing
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              She's been reading that book for two hours.
+            </li>
+            <li>
+              We've been waiting for you since 10 o'clock.
+            </li>
+            <li>
+              I've been learning English for seven years now
+            </li>
+            <li>
+              It's been raining for 5 hours!
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Przeczenie tworzymy łącząc operator have/has ze słówkiem not
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              I haven't been reading the book for an hour.
+            </li>
+            <li>
+              She hasn't been waiting for the doctor since eight
+            </li>
+            <li>
+
+            </li>
+            <li>
+
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Pytanie tworzymy przez przesunięcie operatora have/has przed podmiot. Jeśli pytamy o szczegóły na początek
+            dajemy jeszcze właściwe słówko pytające where, when, what, itp.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Have you been waiting for me?
+            </li>
+            <li>
+              How long have you been waiting for me?
+            </li>
+            <li>
+              Since when has she been learning German?
+            </li>
+            <li>
+              I can smell cigarettes. Have you been smoking?
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Present Perfect Continuous.</b>
+          <ol>
+            <li>
+              (watch) He <input nz-input [(ngModel)]="answer1"/> TV all day.
+            </li>
+            <li>
+              (wait) How long <input nz-input [(ngModel)]="answer2"/> you for me?
+            </li>
+            <li>
+              (run) Jane <input nz-input [(ngModel)]="answer3"/> all morning.
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

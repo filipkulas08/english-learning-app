@@ -41,16 +41,73 @@
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/learn/test">  Test </a>
           </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/admin/dupa">  Gramatyka? </a>
+          <li nz-submenu nzOpen nzTitle="Gramatyka">
+            <ul>
+              <li nz-submenu  nzTitle="Czas przeszły">
+                <ul>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/past-simple">Past Simple</a>
+                  </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/past-continuous">Past Continuous</a>
+                  </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/past-perfect">Past Perfect</a>
+                  </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/past-perfect-continuous">Past Perfect Continuous</a>
+                  </li>
+                </ul>
+              </li>
+              <li nz-submenu  nzTitle="Czas teraźniejszy">
+                <ul>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/present-simple">Present Simple</a>
+                  </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/present-continuous">Present Continuous</a>
+                  </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/present-perfect">Present Perfect</a>
+                  </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/present-perfect-continuous">Present Perfect Continuous</a>
+                  </li>
+                </ul>
+              </li>
+              <li nz-submenu  nzTitle="Czas przyszły">
+                <ul>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/future-simple">Future Simple</a>
+                  </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/future-continuous">Future Continuous</a>
+                  </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/future-perfect">Future Perfect</a>
+                  </li>
+                  <li nz-menu-item nzMatchRouter>
+                    <a routerLink="/learn/future-perfect-continuous">Future Perfect Continuous</a>
+                  </li>
+                </ul>
+              </li>
+
+              
+            </ul>
           </li>
-          <li nz-submenu nzOpen nzTitle="Krzyzówki">
+          <li nz-submenu  nzTitle="Krzyzówki">
             <ul>
               <li nz-menu-item nzMatchRouter>
                 <a routerLink="/learn/crossword-human">Człowiek</a>
               </li>
               <li nz-menu-item nzMatchRouter>
-                <a routerLink="/admin/addWord">xyz </a>
+                <a routerLink="/learn/crossword-food">Jedzenie</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="/learn/crossword-school">Szkoła</a>
+              </li>
+              <li nz-menu-item nzMatchRouter>
+                <a routerLink="/learn/crossword-house">Dom</a>
               </li>
               
             </ul>
@@ -61,9 +118,9 @@
   </nz-sider>
   <nz-layout>
     <nz-header>
-<button nz-button nzType="primary"  *ngIf="!user" (click)="showModalRegister()">Register</button>
-<button nz-button nzType="primary" *ngIf="user" (click)="logout()">Logout</button>
-<button nz-button nzType="primary" *ngIf="!user" (click)="showModalLogin()">Login</button>
+<button nz-button nzType="primary"  *ngIf="!user" (click)="showModalRegister()">Rejestracja</button>
+<button nz-button nzType="primary" *ngIf="user" (click)="logout()">Wyloguj</button>
+<button nz-button nzType="primary" *ngIf="!user" (click)="showModalLogin()">Zaloguj</button>
 <nz-modal 
   [(nzVisible)]="isVisibleLogin"
   [nzTitle]="modalTitleLogin"

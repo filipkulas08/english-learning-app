@@ -1,0 +1,169 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b> Future Simple</b>
+          <p>
+            Future Simple, czyli czas przyszły prosty, jest bardzo łatwy zarówno w tworzeniu jak i użyciu. Po podmiocie
+            wstawiamy will (we wszystkich osobach), a po nim czasownik w pierwszej formie.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Zastosowanie</b>
+          <ul>
+            <li>
+              Jeśli podejmujemy decyzję (zazwyczaj jest to spontaniczna decyzja, podjęta w chwili wypowiadania jej)
+            </li>
+            <li>
+              Uważamy jakieś wydarzenie za pewne lub bardzo prawdopodobne
+            </li>
+            <li>
+              Oferując pomoc, prosząc o coś, składając obietnicę:
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            podmiot 	+ 	will 	+ 	czasownik w I formie
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              I will come to you tomorrow.
+            </li>
+            <li>
+              She will pass the exam.
+            </li>
+            <li>
+              The children will go to bed early.
+            </li>
+            <li>
+              We will take care of it.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Tworząc przeczenie używamy operatora will w połączeniu z <b>not</b>.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              We won't pass the exam I'm afraid.
+            </li>
+            <li>
+              You won't enjoy the film.
+            </li>
+            <li>
+              He will not find us here
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Pytanie tworzymy wręcz banalnie - zamieniamy kolejnością podmiot i słówko will
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Will you bring me some water?
+            </li>
+            <li>
+              Will you take the language exam this year?
+            </li>
+            <li>
+              Where will he stay in Rome?
+            </li>
+            <li>
+              How long will it take?
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Future Simple</b>
+          <ol>
+            <li>
+              (come) I <input nz-input [(ngModel)]="answer1" /> to the birthday party tomorrow just for you.
+            </li>
+            <li>
+              (agree) I don't think they <input nz-input [(ngModel)]="answer2" /> .
+            </li>
+            <li>
+              (not like) I'm sure you <input nz-input [(ngModel)]="answer3" /> her new boyfriend.
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

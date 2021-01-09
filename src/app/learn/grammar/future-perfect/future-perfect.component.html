@@ -1,0 +1,173 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>
+            Future Perfect
+          </b>
+          <p>
+            Future Perfect to czas przyszły dokonany. Czas ten stosujemy do określenia czynności, która skończy się w
+            określonym momencie w przyszłości lub też zanim zacznie się następna czynność, wydarzenie, moment w
+            przyszłości. Zawsze należy określić czas precyzujący do kiedy lub w jakim czasie dana czynność zostanie
+            zakończona.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Zastosowanie </b>
+            <ul>
+              <li>
+                Czas Future Perfect jest używany do określenia czynności, która skończy się zanim zacznie się następna
+                czynność*, bądź też zakończy się przed pewnym określonym czasem (punktem) w przyszłości. Czyli mówimy za
+                każdym razem o 'skończonej', 'dokonanej' czynności.
+              </li>
+            </ul>
+        </span>
+      </div>
+    </div>
+    
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            podmiot + will have + past participle(czyli -ed dla czasowników regularnych, lub III forma dla
+            nieregularnych)
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              I will have finished the book before he comes back.
+            </li>
+            <li>
+              We will have left by the time you start mowing the lawn.
+            </li>
+            <li>
+              By the end of the year we will have had this car for 15 years.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Przeczenia tworzymy tak samo jak w czasie Future Simple - czyli wstawiamy not po słowie will (w języku
+            potocznym łączymy je w won't). Jedyne o czym trzeba pamiętać, to żeby nie 'zgubić' gdzieś reszty orzeczenia
+            (have i III formy czasownika)
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              I won't have been ready with my presentation by tomorrow.
+            </li>
+            <li>
+              His German won't have improved by holiday if he misses so many classes.
+            </li>
+            <li>
+              We won't have finished the report by the time the boss comes back.
+            </li>
+            <li>
+              I won't have spent much by the end of my stay.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Pytanie tworzymy przez inwersję słówka will z podmiotem, czyli w pytaniu w pierwszej kolejności pojawia się will, a dopiero potem podmiot.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Will they have passed all the exams before July?
+            </li>
+            <li>
+              Will you have processed these data by tomorrow?
+            </li>
+            <li>
+              How many countries will they have visited by the end of the holiday?
+            </li>
+            <li>
+              How much will you have spent before they credit your account?
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Future Perfect</b>
+          <ol>
+            <li>
+              (finish) I <input nz-input [(ngModel)]="answer1"  /> the project by Monday.
+            </li>
+            <li>
+              (decide) My parents <input nz-input [(ngModel)]="answer2"/> whether to move to Gdańsk or not by the end of the week.
+            </li>
+            <li>
+              (understand) I hope I <input nz-input [(ngModel)]="answer3" /> all those rules before the exam.
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

@@ -1,0 +1,35 @@
+button{
+    width: 33%;
+}
+input{
+    padding: 0;
+}
+.container2 .flex{
+    padding: 1% 0;
+    display: flex;
+    justify-content: center;
+}
+.container2 .ant-col{
+    
+    text-align: center;
+    font-size: 1.3rem;
+    justify-content: center;
+}
+.container2 span{
+    display: inline-block;
+    height: 34.6px;
+}
+span.name{
+    font-size: 4rem;
+}
+.success input{
+    background: green;
+    color: white;
+}
+.nothing input{
+    background:transparent;
+}
+.false input{
+    background: red;
+    color: white;
+}

@@ -1,0 +1,148 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>
+            Future Perfect Continuous
+          </b>
+          <p>
+            Future Perfect Coninuous to czas przyszły. Stosujemy go kiedy mówimy o czynności / wydarzeniu / sytuacji,
+            ktOra na ogół już jakiś czas trwa i będzie trwać do określonego momentu w przyszłości. Ważne jest trwanie
+            tej czynności przez pewien czas, jej ciągłość.
+
+            Czasu tego możemy użyć również w przypadkach, gdy chcemy pokazać skutek czy efekt czynności z przyszłości.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            podmiot + will have + been + czasownik z końcówką -ing
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              By the end of May I'll have been working here for 5 years.
+            </li>
+            <li>
+              Before he comes we will have been waiting for him for one hour.
+            </li>
+            <li>
+              By this time next week they will have been travelling for 9 months.
+            </li>
+            <li>
+              By the end of this month they will have been going out for almost a year!
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Aby utworzyć przeczenie trzeba oczywiście dodać słówko <b>not</b> do will:
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              I won't have been eating canned food by the end of summer.
+            </li>
+            <li>
+              They won't have been hunting this breed for almost 3 months before the end of the close season.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Ponownie musimy zastosować inwersję słówka will i podmiotu, czyli w pytaniu w pierwszej kolejności pojawi
+            się will a dopiero po nim podmiot. Pozostała część orzeczenia zostaje bez zmian na swoich miejscach.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Will she have been staying abroad for 8 months by the end of the year?
+            </li>
+            <li>
+              How long will you have been redecorating this room by the end of this month?
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie  Future Perfect Continuous.</b>
+          <ol>
+            <li>
+              (work) By the end of November I <input nz-input [(ngModel)]="answer1" /> here for 3 years.
+            </li>
+            <li>
+              (build) How long <input nz-input [(ngModel)]="answer2" /> they <input nz-input [(ngModel)]="answer3" /> this road by the end of the year?
+            </li>
+            <li>
+              (teach) Martha <input nz-input [(ngModel)]="answer4" /> in this school for 10 years by next month.
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

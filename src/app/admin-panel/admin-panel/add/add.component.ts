@@ -12,8 +12,8 @@ export class AddComponent implements OnInit {
     levels: any;
     english: string;
     polish: string;
-    categoryName: string;
-    levelName: string;
+    categoryName: string = "";
+    levelName: string = "";
     message: string;
   constructor(private service: CrudService) { }
 
@@ -55,7 +55,10 @@ export class AddComponent implements OnInit {
         }
       }};
     
-
+      if(this.categoryName === "" || this.levelName === "" || this.english === "" || this.polish === ""){
+        this.message = "Dane nie zostały uzupełnione poprawnie"
+      }
+      else{
     this.service.createWord(Record).then(res => {
       console.log(res);
       this.english = "";
@@ -66,7 +69,7 @@ export class AddComponent implements OnInit {
       this.message = "Słowo zostało dodane"
     }).catch(error =>{
       console.log(error);
-    });
+    })};
     
   }
   

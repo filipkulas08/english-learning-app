@@ -14,9 +14,11 @@ export class WordComponent implements OnInit {
   categories:any;
   words:any;
   items:any ;
-  categoryName:string;
+  categoryName:string = '';
   levelName:string = '';
   Index:number=0;
+  isChoose:boolean = false;
+  message:string = '';
 
   constructor(private service: CrudService, public f: SpeechSynthesisUtteranceFactoryService,
     public svc: SpeechSynthesisService,) {}
@@ -48,13 +50,19 @@ export class WordComponent implements OnInit {
   }
 
   speech() {
-    // for (const text of this.items) {
       const v = this.f.text(this.items[this.Index].word.ang);
       this.svc.speak(this.f.text(this.items[this.Index].word.ang));
-    
   }
 
-  chooseCategory(){
+  chooseCategoryAndLevel(){
+    if(this.categoryName === ""){
+      this.message = "Nie wybrano kategorii słów";
+
+    }
+    else if(this.levelName === ""){
+      this.message = "Nie wybrano poziomu słów";
+    }
+    else{
     this.service.where(this.categoryName,this.levelName).subscribe(data =>{
       this.items = data.map(e =>{
         return{
@@ -66,7 +74,9 @@ export class WordComponent implements OnInit {
       console.log(this.items);
     })
     this.Index = 0;
-  }
+    this.isChoose = true;
+    this.message = "";
+  }}
 
   changeIndex(number) {
     if (this.Index > 0 && number < 0 ||  //index must be greater than 0 at all times
@@ -76,5 +86,8 @@ export class WordComponent implements OnInit {
     }
   }
 
+  clearChoose(){
+    this.isChoose = false;
+  }
 
 }

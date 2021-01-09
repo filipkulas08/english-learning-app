@@ -28,11 +28,11 @@ export class CrudService {
 
 
 //metody pobierające wszystkie słowa, kategorię oraz poziomy
-  getWords(){
-    return this.db.collection('words').snapshotChanges();
+  getWords(orderBy){
+    return this.db.collection('words',  ref => ref.orderBy(orderBy,'asc')).snapshotChanges();
   }
   getCategory(){
-    return this.db.collection('category').snapshotChanges();
+    return this.db.collection('category', ref => ref.orderBy('name','asc')).snapshotChanges();
   }
   getLevel(){
     return this.db.collection('level').snapshotChanges();

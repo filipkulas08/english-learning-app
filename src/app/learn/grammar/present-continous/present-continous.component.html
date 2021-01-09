@@ -1,0 +1,177 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>
+            Present Continuouns
+          </b>
+          <p>
+            Present Continuous to jeden z pierwszych czasów, jakie poznajemy zaczynając naukę angielskiego. Czas ten
+            najczęściej opisuje czynność, która jest w tej chwili wykonywana.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            podmiot 	+ 	to be (am/is/are) 	+ 	czasownik z końcówką -ing
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Zastosowanie</b>
+            <ul>
+              <li>
+                Opisując czynności, które dzieją się w momencie mówienia o nich. Możemy dodatkowo użyć słówek mówiących, że czynność jest wykonywana w tej chwili
+              </li>
+              <li>
+                Present Continuous także do opisu czynności, które nie muszą trwać dokładnie w chwili mówienia o nich, ale trwają dłuższy czas (włączając w to chwilę obecną).
+              </li>
+              <li>
+                Jeśli coś zaplanowaliśmy, to także możemy wyrazić to w Present Continuous.
+              </li>
+              <li>
+                Jeśli opisujemy czynność powtarzającą się lecz nie jest to "stała" cecha człowieka czy rzeczy.
+              </li>
+            </ul>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              You are reading a book.
+            </li>
+            <li>
+              We are waiting for my uncle.
+            </li>
+            <li>
+              We are doing our homework.
+            </li>
+            <li>
+              He is looking at the stars.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Tworzenie przeczeń w Present Continuous jest bardzo proste. Potrzebne nam będzie dodatkowe słowo: <b>not</b>
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Tom is not writing a letter.
+            </li>
+            <li>
+              Mary isn't having breakfast.
+            </li>
+            <li>
+              We aren't waiting for my uncle.
+            </li>
+            <li>
+              He isn't looking at the stars.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Tworzenie pytań jest banalnie proste - wystarczy tylko zamienić ze sobą miejscami czasownik pomocniczy z podmiotem zdania
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Are you reading a book?
+            </li>
+            <li>
+              We are waiting for my uncle.
+            </li>
+            <li>
+              We are doing our homework.
+            </li>
+            <li>
+              He is looking at the stars.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Present Continuouns</b>
+          <ol>
+            <li>
+              (talk) They <input nz-input [(ngModel)]="answer1" /> about their work.
+            </li>
+            <li>
+              (lie) I don't believe you. You <input nz-input [(ngModel)]="answer2" /> to me.
+            </li>
+            <li>
+              (look) The police <input nz-input [(ngModel)]="answer3" /> for the murderer.
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

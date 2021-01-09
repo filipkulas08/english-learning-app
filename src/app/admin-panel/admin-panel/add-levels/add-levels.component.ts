@@ -7,7 +7,7 @@ import { CrudService } from '../../crud.service';
   styleUrls: ['./add-levels.component.css']
 })
 export class AddLevelsComponent implements OnInit {
-    levelName: string;
+    levelName: string = "";
     message: string;
   constructor(private service: CrudService) { }
 
@@ -19,7 +19,10 @@ export class AddLevelsComponent implements OnInit {
     Record['name'] = this.levelName;
       
     
-
+    if(this.levelName === ""){
+      this.message = "Nazwa poziomu nie może być pusta"
+    }
+    else{
     this.service.createLevel(Record).then(res => {
       
       this.levelName = "";
@@ -27,7 +30,7 @@ export class AddLevelsComponent implements OnInit {
       this.message = "Poziom został dodany"
     }).catch(error =>{
       console.log(error);
-    });
+    })};
 };
 
 }

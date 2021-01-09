@@ -10,7 +10,7 @@
         <td>
           <button  (click)="EditRecord(data)" nz-button nzType="primary">Edytuj</button>
           <nz-divider nzType="vertical"></nz-divider>
-          <button (click)= "Deleteemployee(data.id)" nz-button nzType="primary" nzDanger>Usuń</button>
+          <button (click)= "Deleteemployee(data.id)" (click)="deleteMessage()" nz-button nzType="primary" nzDanger>Usuń</button>
         </td>
       </tr>
     </tbody>
@@ -23,8 +23,8 @@
                             <input nz-input placeholder="Wprowadź nazwe poziomu" [(ngModel)]="item.editName" />
                         </div>
                     </div>
-                <a  class="btn btn-danger btn-xs" (click)="item.isedit = false">Anuluj</a>
-                <a  class="btn btn-primary btn-xs" (click)="Updaterecord(item)">Zaaktualizuj</a>
+                    <button  (click)="item.isedit = false" nz-button nzType="primary">Anuluj</button>
+                    <button  (click)="Updaterecord(item)" (click)="editMessage()" nz-button nzType="danger">Zaktualizuj</button>
                 </div>   
             </div>
         </div>

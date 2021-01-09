@@ -1,10 +1,10 @@
 <nz-table #basicTable [nzData]="words">
     <thead>
       <tr>
-        <th>Słowo angielskie</th>
-        <th>Słowo polskie</th>
-        <th>Nazwa kategorii </th>
-        <th>Nazwa poziomu</th>
+        <th (click)="orderByAng()">Słowo angielskie</th>
+        <th (click)="orderByPl()">Słowo polskie</th>
+        <th (click)="orderByCategory()">Nazwa kategorii </th>
+        <th (click)="orderByLevel()">Nazwa poziomu</th>
       </tr>
     </thead>
     <tbody>
@@ -16,36 +16,41 @@
         <td>
           <button  (click)="EditRecord(data)" nz-button nzType="primary">Edytuj</button>
           <nz-divider nzType="vertical"></nz-divider>
-          <button (click)= "Deleteemployee(data.id)" nz-button nzType="primary" nzDanger>Usuń</button>
+          <button (click)= "Deleteemployee(data.id)" (click)= "deleteMessage()" nz-button nzType="primary" nzDanger>Usuń</button>
         </td>
       </tr>
     </tbody>
   </nz-table>
 <div class="col-md-3" *ngFor ="let item of words">
-        <div class="card">
-                <div class="row" *ngIf="item.isedit">
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <input nz-input placeholder="Wprowadź polskie słowo" [(ngModel)]="item.editEng" />
-                        </div>
-                        <div class="col-md-12">
-                            <input nz-input placeholder="Wprowadź polskie słowo" [(ngModel)]="item.editPl" />
-                        </div>
-                        <div class="col-md-12">
-                            <input nz-input placeholder="Wprowadź polskie słowo" [(ngModel)]="item.editCategory" />
-                        </div>
-                        <div class="col-md-12">
-                            <input nz-input placeholder="Wprowadź polskie słowo" [(ngModel)]="item.editLevel" />
-                        </div>
-                    </div>
-               
-
-                <a class="btn btn-danger btn-xs" (click)="item.isedit = false">Anuluj</a>
-                
-                <a class="btn btn-primary btn-xs" (click)="Updaterecord(item)">Zaaktualizuj</a>
-                </div>   
-            </div>
+  <div class="card">
+    <div class="row" *ngIf="item.isedit">
+      <div class="form-group">
+        <div class="col-md-12">
+          <input nz-input placeholder="Wprowadź polskie słowo" [(ngModel)]="item.editEng" />
         </div>
+        <div class="col-md-12">
+          <input nz-input placeholder="Wprowadź polskie słowo" [(ngModel)]="item.editPl" />
+        </div>
+        <div class="col-md-12">
+          <nz-input-group  >
+            <nz-select [(ngModel)]="item.editCategory" placeholder ="Wybierz kategorie" >
+              <nz-option *ngFor ="let item of categories" [nzLabel]="item.categoryName" [nzValue]="item.categoryName"></nz-option>
+            </nz-select>
+        </nz-input-group>
+        </div>
+        <div class="col-md-12">
+          <nz-input-group nzCompact >
+            <nz-select [(ngModel)]="item.editLevel">
+              <nz-option *ngFor ="let item of levels" [nzLabel]="item.levelName" [nzValue]="item.levelName"></nz-option>
+            </nz-select>
+          </nz-input-group>
+        </div>
+      </div>
+      <button  (click)="item.isedit = false" nz-button nzType="primary">Anuluj</button>
+      <button  (click)="Updaterecord(item)" (click)="editMessage()" nz-button nzType="danger">Zaktualizuj</button>
+    </div>   
+  </div>
+</div>
     
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 
 @Component({
@@ -11,11 +12,14 @@ export class AdminPanelComponent implements OnInit {
 
     words: any;
     message: string;
-
-  constructor(private service: CrudService) { }
+    categories: any;
+    levels: any;
+    orderBy: string;
+  constructor(private service: CrudService, private messager: NzMessageService) { }
 
   ngOnInit(): void {
-    this.service.getWords().subscribe(data =>{
+    this.orderBy = "word.ang";
+    this.service.getWords(this.orderBy).subscribe(data =>{
       this.words = data.map(e =>{
         return{
           id: e.payload.doc.id,
@@ -27,6 +31,26 @@ export class AdminPanelComponent implements OnInit {
       console.log(this.words);
     })
 
+    this.service.getCategory().subscribe(data =>{
+      this.categories = data.map(e =>{
+        return{
+          id: e.payload.doc.id,
+          categoryName: e.payload.doc.data()['name'],
+        };
+      })
+      console.log(this.categories);
+    });
+
+    this.service.getLevel().subscribe(data =>{
+      this.levels = data.map(e =>{
+        return{
+          id: e.payload.doc.id,
+          levelName: e.payload.doc.data()['name'],
+        };
+      })
+      console.log(this.levels);
+    });
+
     
   }
 
@@ -37,6 +61,7 @@ export class AdminPanelComponent implements OnInit {
     Record.editCategory = Record.word.category.name;
     Record.editLevel = Record.word.category.level.name;
   }
+
   Updaterecord(recorddata){
     let Record = {};
     Record['word'] = {
@@ -50,18 +75,81 @@ export class AdminPanelComponent implements OnInit {
       }};
     this.service.updateWord(recorddata.id, Record);
     recorddata.isedit = false;
-    
-    recorddata.editname = '';
-    recorddata.editage = undefined
-    recorddata.editaddress = '';
-
+  
   }
 
   Deleteemployee(record_id){
     this.service.deleteWord(record_id);
 
   }
+  orderByAng(){
+    this.orderBy = "word.ang";
+    this.service.getWords(this.orderBy).subscribe(data =>{
+      this.words = data.map(e =>{
+        return{
+          id: e.payload.doc.id,
+          isedit: false,
+          word: e.payload.doc.data()['word'],
+          
+        };
+      })
+      console.log(this.words);
+    })
+  }
 
+  orderByPl(){
+    this.orderBy = "word.pl";
+    this.service.getWords(this.orderBy).subscribe(data =>{
+      this.words = data.map(e =>{
+        return{
+          id: e.payload.doc.id,
+          isedit: false,
+          word: e.payload.doc.data()['word'],
+          
+        };
+      })
+      console.log(this.words);
+    })
+  }
+  
+  orderByCategory(){
+    this.orderBy = "word.category.name";
+    this.service.getWords(this.orderBy).subscribe(data =>{
+      this.words = data.map(e =>{
+        return{
+          id: e.payload.doc.id,
+          isedit: false,
+          word: e.payload.doc.data()['word'],
+          
+        };
+      })
+      console.log(this.words);
+    })
+  }
+
+  orderByLevel(){
+    this.orderBy = "word.category.level.name";
+    this.service.getWords(this.orderBy).subscribe(data =>{
+      this.words = data.map(e =>{
+        return{
+          id: e.payload.doc.id,
+          isedit: false,
+          word: e.payload.doc.data()['word'],
+          
+        };
+      })
+      console.log(this.words);
+    })
+  }
+
+  deleteMessage(): void {
+    this.messager.info('Słowo zostało usunięte poprawnie');
+  }
+  
+  editMessage(): void {
+    this.messager.info('Słowo zostało edytowane poprawnie');
+  }
+  
   
     
   

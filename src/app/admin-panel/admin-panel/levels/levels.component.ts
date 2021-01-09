@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../crud.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-levels',
@@ -10,7 +11,7 @@ export class LevelsComponent implements OnInit {
    
   level:any;
 
-  constructor(private service: CrudService) { }
+  constructor(private service: CrudService, private messager: NzMessageService) { }
 
   ngOnInit(): void {
     this.service.getLevel().subscribe(data =>{
@@ -42,6 +43,14 @@ export class LevelsComponent implements OnInit {
   Deleteemployee(record_id){
     this.service.deleteLevel(record_id);
 
+  }
+
+  deleteMessage(): void {
+    this.messager.info('Słowo zostało usunięte poprawnie');
+  }
+  
+  editMessage(): void {
+    this.messager.info('Słowo zostało edytowane poprawnie');
   }
 
 

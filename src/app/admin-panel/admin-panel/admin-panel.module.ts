@@ -8,6 +8,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 import { CategoryComponent } from './category/category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
@@ -24,7 +26,9 @@ import { AddLevelsComponent } from './add-levels/add-levels.component';
     NzTableModule,
     NzButtonModule,
     NzInputModule,
-    NzSelectModule
+    NzSelectModule,
+    NzAlertModule,
+    NzMessageModule
   ],
   exports: [AdminPanelComponent]
 })

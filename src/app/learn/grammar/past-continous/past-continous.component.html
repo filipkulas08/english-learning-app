@@ -1,0 +1,177 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Past Continuous</b>
+          <p>
+            Past Continuous jest czasem bardzo podobnym do Present Continuous z tym, że wyraża czynność trwającą
+            określony czas w przeszłości. Różnica tkwi w czasowniku być (to be) - zamiast formy teraźniejszej używamy
+            formy czasu przeszłego. Past Continuous jest czasem niedokonanym.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Zastosowanie</b>
+          <ul>
+            <li>
+              Do mówienia o wydarzeniach trwających w określonym momencie w przeszłości, gdy byliśmy w trakcie wykonywania jakiejś czynności
+            </li>
+            <li>
+              Bardzo często do opisu, kiedy dana czynność trwała, używamy drugiego zdania w Past Simple.
+            </li>
+            <li>
+              Możemy także wyrazić dwie czynności, które trwały jednocześnie - wtedy obydwie są w Past Continuous
+            </li>
+            <li>
+              Ostatnie zastosowanie to czynność, która w sposób ciągły wypełniała jakiś okres w przeszłości lub opis tła wydarzeń:
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            podmiot 	+ 	was/were 	+ 	czasownik z końcówką -ing
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Yesterday at about eight we were listening to music.
+            </li>
+            <li>
+              I saw an accident when I was driving to work this morning.
+            </li>
+            <li>
+              They met when they were studying in Berlin.
+            </li>
+            <li>
+              I couldn't fall asleep because my neighbours were having a party.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Utworzenie zdania przeczącego najczęściej wymaga wstawienia <b>not</b>, w mowie potocznej najczęściej w formie skróconej wasn't, weren't.
+            
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              We weren't living in China at that time.
+            </li>
+            <li>
+              I wasn't doing anything important when you called.
+            </li>
+            <li>
+              The baby wasn't sleeping when I woke up.
+            </li>
+            <li>
+             
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Pytanie tworzymy przez inwersję, czyli w zdaniu najpierw pojawia się was/were, a dopiero potem podmiot
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Was Tom writing the letter all day yesterday?
+            </li>
+            <li>
+              Were you having a shower when he came?
+            </li>
+            <li>
+              Was it raining when you left work?
+            </li>
+            <li>
+              
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Past Continuous</b>
+          <ol>
+            <li>
+              (sleep) He came while we <input nz-input [(ngModel)]="answer1" /> .
+            </li>
+            <li>
+              (cry) Although the baby <input nz-input [(ngModel)]="answer2" /> loudly, my neighbour came to see what was happening.
+            </li>
+            <li>
+              (ride) Paul broke his leg when he <input nz-input [(ngModel)]="answer3" /> a horse.
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

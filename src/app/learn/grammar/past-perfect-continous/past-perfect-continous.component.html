@@ -1,0 +1,167 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>
+            Past Perfect Continuous
+          </b>
+          <p>
+            Czasu Past Perfect Continuous używamy mówiąc o czynności ciągłej w przeszłości która zaczęła się zanim miała
+            miejsce jakaś inna czynność przeszła.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Zastosowanie</b>
+          <ul>
+            <li>
+              Czas ten stosujemy dla wyrażenia czynności trwającej w przeszłości przez pewien czas, aż do rozpoczęcia
+              się drugiej czynności przeszłej:
+            </li>
+            <li>
+              Możemy go też użyć bez podania, jak długo czynność trwała. W tym przypadku czynność wyrażona przez Past
+              Perfect Continuous została dopiero co zakończona, a czasu ciągłego uzywamy dla podkreślenia jej widocznych
+              efektów.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Zdanie twierdzące tworzymy wstawiając po podmiocie orzeczenie złożone z następujących elementów: had + been
+            (we wszystkich osobach tak samo) + czasownik z końcówką -ing.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              It had been raining for days so when they finally left, the roads were very muddy.
+            </li>
+            <li>
+              The mother had been trying to find him for hours before he finally came back home
+            </li>
+            <li>
+              We were tired yesterday in the evening because we had been working out a lot all day.
+            </li>
+            <li>
+              They had been going out for two years before Jack decided to propose to her.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Jak przeczenie to oczywiście not dodane do operatora (had not) i często łączone z nim w jeden wyraz - hadn't:
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              We hadn't been working together for long when we had to go on a business trip.
+            </li>
+            <li>
+              They hadn't been planning to get married but she got pregnant.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Pytania tworzymy w standardowy sposób - zamieniamy miejscami podmiot z operatorem
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Had he been living on his own before he went to that boarding school last year?
+            </li>
+            <li>
+              How long had they been going out before they decided to get married?
+            </li>
+            <li>
+              What other lies had he been telling you all those years before you realised he was a crook?
+            </li>
+            
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Past Perfect Continuous</b>
+          <ol>
+            <li>
+              (drive) Jane <input nz-input [(ngModel)]="answer1" /> for 11 hours when the accidents happened.
+            </li>
+            <li>
+              (wait) We <input nz-input [(ngModel)]="answer2" /> for the bus for 3 hours before it finally arrived.
+            </li>
+            <li>
+              (steal) On that day Mark realised that Fiona <input nz-input [(ngModel)]="answer3" /> from him since the very beginning. 
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

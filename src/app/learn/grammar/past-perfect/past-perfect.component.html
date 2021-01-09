@@ -1,0 +1,171 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>
+            Past perfect
+          </b>
+          <p>
+            Czas Past Perfect to czas przeszły dokonany, nazywa się go także czasem zaprzeszłym, gdyż opisuje czynność,
+            która dokonała się zanim rozpoczęła się inna czynność przeszła. Tworzenie zdań w Past Perfect jest dość proste, mimo że jest to czas złożony.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Zastosowanie</b>
+          <ul>
+            <li>
+              Past Perfect opisuje czynność, która dokonała się zanim rozpoczęła się inna czynność przeszła.
+            </li>
+            <li>
+              Czas ten opisuje także czynność dokonaną przed określonym momentem w przeszłości.
+            </li>
+            <li>
+              Past Perfect użyjemy także aby wyrazić zamiar, postanowienie, które nie doszło do skutku
+            </li>
+            <li>
+              W zdaniach warunkowych (III okres warunkowy)
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            podmiot 	+ 	had 	+ 	czasownik w III formie 
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              We hadn't met him until we came to Warsaw.
+            </li>
+            <li>
+              By the time we reached the cinema, the film had already started.
+            </li>
+            <li>
+              Before I met him, I had never been in a serious relationship.
+            </li>
+            <li>
+              I was shocked when I found out that Derek and Gina had got divorced.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Przeczenie uzyskujemy wstawiając <b>not</b>
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              She hadn't thought about baking a cake so we had to buy some biscuits.
+            </li>
+            <li>
+              He hadn't ridden a horse before so his first steps in the saddle were painful.
+            </li>
+            <li>
+              The castle hadn't been inhabited for a long time so when the court arrived they had to sleep on the floor in the main hall.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Pytania tworzymy w standardowy sposób - zamieniamy miejscami podmiot z operatorem
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Had he finished the presentation before all the lights went out?
+            </li>
+            <li>
+              Had she already watched the movie before he arrived home?
+            </li>
+            <li>
+              Had they learnt about the accident before the police called them?
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Past Perfect</b>
+          <ol>
+            <li>
+              (have) By the end of the month she  <input nz-input [(ngModel)]="answer1" /> already <input nz-input [(ngModel)]="answer2" /> ten thousand dollars.
+            </li>
+            <li>
+              (happen) In the morning I told my sister what <input nz-input [(ngModel)]="answer3" /> .
+            </li>
+            <li>
+              (hear) Paul <input nz-input [(ngModel)]="answer4" /> steps long before Bianca entered the room.
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

@@ -1,0 +1,31 @@
+.ant-row{
+    padding: 1% 0;
+}
+ .ant-col{
+    border: 1px solid;
+    text-align: left;
+    font-size: 1.3rem;
+    justify-content: center;
+}
+input{
+    width: 15%;
+    
+}
+.miss{
+    background: red;
+    border: 0;
+    text-align: center;
+    height: 100px;
+}
+.success{
+    background: green;
+    border: 0;
+    text-align: center;
+    height: 100px;
+}
+span {
+    padding-left: 1%;
+}
+p{
+    padding-left: 1%;
+}

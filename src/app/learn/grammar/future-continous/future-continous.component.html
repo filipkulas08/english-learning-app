@@ -1,0 +1,175 @@
+<nz-tabset nzType="card">
+  <nz-tab [nzTitle]="'Wprowadzenie'">
+
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>
+            Future Continuous
+          </b>
+          <p>
+            Za pomocą Future Continuous możemy wyrazić czynność, która będzie wykonywana w przyszłości i będzie trwała
+            pewien czas. Ponieważ jest to czas typu Continuous to, jak można się spodziewać, potrzebne nam będą formy
+            czasownika z końcówką -ing.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Zastosowanie</b>
+          <ul>
+            <li>
+              Gdy mówimy o  ciągłej czynności, która będzie (lub nie będzie) się działa w przyszłości (w wyniku planu, ustaleń, harmonogramu)
+            </li>
+            <li>
+              Propozycja pomocy (lub prośba o pomoc) z wyraźnym zaznaczeniem, że czynność ma być wykonana "przy okazji", nie będzie kłopotliwa (pytając o plany drugiej osoby)
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            will be 	+ 	czasownik z końcówką -ing
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              I will be watching TV tomorrow at 7.
+            </li>
+            <li>
+              My girlfriend will be working in the U.S. next summer.
+            </li>
+            <li>
+              This time next week I'll be lying on the beach.
+            </li>
+            <li>
+              They will be repairing the roof all day.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania przeczące'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Przeczenie tworzymy za pomocą słówka <b>not</b>.
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              I will not be writing an essay on Monday.
+            </li>
+            <li>
+              We won't be waiting for you for more than 15 minutes.
+            </li>
+            <li>
+              He won't be using the car tonight.
+            </li>
+            <li>
+              I couldn't sleep last night.
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Zdania pytające'">
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Budowa</b>
+          <p>
+            Tworząc pytanie, zamieniamy kolejnością podmiot i słówko will
+          </p>
+          <p>
+            Pytając o szczegóły, zaczynamy od słówka pytającego, po którym dajemy will i całą resztę, np.:
+          </p>
+        </span>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col nzSpan="24">
+        <span>
+          <b>Przykłady</b>
+          <ul>
+            <li>
+              Will they be travelling to Moscow all day tomorrow?
+            </li>
+            <li>
+              Will she be listening to the radio at five?
+            </li>
+            <li>
+              How long will they be staying there?
+            </li>
+            <li>
+              What will you be doing this time tomorrow? 	
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab [nzTitle]="'Test'">
+    <div nz-row>
+      <div nz-col nzSpan="16">
+        <span>
+          <b>Wstaw podane czasowniki w czasie Future Continuous.</b>
+          <ol>
+            <li>
+              (spend) They <input nz-input [(ngModel)]="answer1" /> their honeymoon by travelling around the world.
+            </li>
+            <li>
+              (drive) Where <input nz-input [(ngModel)]="answer2" /> Frank <input nz-input [(ngModel)]="answer3" /> to all night?
+            </li>
+            <li>
+              (watch) Don't be afraid. I  <input nz-input [(ngModel)]="answer4" /> you through the window.
+            </li>
+          </ol>
+          <button nz-button nzType="primary" (click)="checkTest()">Sprawdź test</button>
+        </span>
+      </div>
+      <div [ngClass]="{'success': activeUser[0].test === true, 'miss': activeUser[0].test === false }"  nz-col  nzSpan="8" >
+        <span >
+          <p *ngIf="activeUser[0].test === true">
+            Twój test jest już zaliczony
+          </p>
+          <p *ngIf="activeUser[0].test === false">
+            Twój test jest niezaliczony
+          </p>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="testCheck" nz-row>
+      <div nz-col nzSpan="24">
+        <span *ngIf="activeUser[0].test === false">
+          Niezdane
+        </span>
+        <span *ngIf="activeUser[0].test === true">
+          Zdane
+        </span>
+      </div>
+    </div>
+  </nz-tab>
+</nz-tabset>

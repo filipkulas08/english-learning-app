@@ -23,8 +23,8 @@
                             <input nz-input placeholder="Wprowadź nazwe kategorii" [(ngModel)]="item.editName" />
                         </div>
                     </div>
-                <a  class="btn btn-danger btn-xs" (click)="item.isedit = false">Anuluj</a>
-                <a  class="btn btn-primary btn-xs" (click)="Updaterecord(item)">Zaaktualizuj</a>
+                    <button  (click)="item.isedit = false" nz-button nzType="primary">Anuluj</button>
+                    <button  (click)="Updaterecord(item)" (click)="editMessage()" nz-button nzType="danger">Zaktualizuj</button>
                 </div>   
             </div>
         </div>

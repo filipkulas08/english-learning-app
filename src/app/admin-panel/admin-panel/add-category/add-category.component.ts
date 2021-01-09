@@ -8,7 +8,7 @@ import { CrudService } from '../../crud.service';
 })
 export class AddCategoryComponent implements OnInit {
 
-    categoryName: string;
+    categoryName: string= "";
     message: string;
   constructor(private service: CrudService) { }
 
@@ -21,7 +21,10 @@ export class AddCategoryComponent implements OnInit {
     Record['name'] = this.categoryName;
       
     
-
+    if(this.categoryName === ""){
+      this.message ="Nazwa kategorii nie może być pusta";
+    }
+    else{
     this.service.createCategory(Record).then(res => {
       
       this.categoryName = "";
@@ -29,6 +32,6 @@ export class AddCategoryComponent implements OnInit {
       this.message = "Kategoria została dodana"
     }).catch(error =>{
       console.log(error);
-    });
+    })};
 };
 }

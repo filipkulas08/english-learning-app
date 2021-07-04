@@ -12,7 +12,7 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent {
   isCollapsed = false;
   user: firebase.User;
-  userRole:any;
+  userRole:any;s
   activeUser:any =[
   ];
   isVisibleLogin = false;
